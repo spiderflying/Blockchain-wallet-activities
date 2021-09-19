@@ -23,6 +23,6 @@ sh create_table_token.sh
 5. Upload csv table to schema 
 6. Pull new data, upload to Cloud Storage 
 7. Update table with latest records 
-8. Schedule 6&7 to run on a regular basis 
+8. Schedule 6&7 to run on a regular basis (WIP)
 9. Additional feature engineering with sql 
 10. Build data dashboard 
