@@ -9,7 +9,16 @@ Source of data: Etherscan API
 ## How to use this repo 
 1. git clone this repo on GCP shell
 2. Create account in Data Storage/BigQuery 
-3. Run the following command to create table in BigQuery
+```
+PROJECT_ID = 'datapipeline-325719'
+filename = 'get_token_txn_by_address.csv'
+dataset_id = 'etherscan'
+table_name='token_txn_by_address'
+table_id ='datapipeline-325719.etherscan.token_txn_by_address'
+
+Cloud storage bucket = gs://dp-etherscan/
+```
+4. Run the following command to create table in BigQuery
 ``` 
 cd chainlink
 sh create_table_token.sh 
