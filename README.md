@@ -12,6 +12,8 @@ Chainlink Token Activites by Wallet Address Dashboard: https://datastudio.google
 cd chainlink
 sh create_table_token.sh 
 ```
+4. View wallet activities by selecting address in the LINK dashboard
+  https://datastudio.google.com/s/tyJBWhHDbWo
 
 ## Steps to build a data pipeline in GCP
 1. Extract data features from API (etherscan) 
