@@ -13,10 +13,10 @@ Source of data: Etherscan API
 PROJECT_ID = 'datapipeline-325719'
 filename = 'get_token_txn_by_address.csv'
 dataset_id = 'etherscan'
-table_name='token_txn_by_address'
+table_name ='token_txn_by_address'
 table_id ='datapipeline-325719.etherscan.token_txn_by_address'
 
-Cloud storage bucket = gs://dp-etherscan/
+Cloud storage bucket = 'gs://dp-etherscan/'
 ```
 4. Run the following command to create table in BigQuery
 ``` 
