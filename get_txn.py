@@ -88,5 +88,5 @@ new_df = create_features(data)
 print("save get_token_txn_by_address table to csv ")
 new_df.to_csv("get_txn_by_address.csv",index=False)
 
-print("get_token_txn_by_address table saved to local ")
+print("get_txn_by_address table saved to local ")
 
