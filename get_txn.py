@@ -65,10 +65,10 @@ print("API call finished")
 
 
 # add additional columns
-# def create_features(data):
-#     data['outflow']=data['send']*data['eth_value']
-#     data['inflow']=data['receive']*data['eth_value']
-#     data['netflow']=data['inflow']-data['outflow']
+def create_features(data):
+    data['outflow']=data['send']*data['eth_value']
+    data['inflow']=data['receive']*data['eth_value']
+    data['netflow']=data['inflow']-data['outflow']
 #     #sort data by address and timestamp
 #     # data_sorted = data.sort_values(by=['address','timestamp'])
 #     # #calculate balance for each address and token
@@ -80,13 +80,13 @@ print("API call finished")
 #     # balance = balance.drop('netflow', axis=1)
 #     # print("merge")
 #     # new_df=pd.merge(balance,data_sorted,"inner",on=['address','timestamp','blockNumber','hash','txn_from','txn_to'])
-#     return data
+    return data
 
-# print("create additional features")
-# new_df = create_features(data)
+print("create additional features")
+new_df = create_features(data)
 
 print("save get_token_txn_by_address table to csv ")
-data.to_csv("get_txn_by_address.csv",index=False)
+new_df.to_csv("get_txn_by_address.csv",index=False)
 
 print("get_token_txn_by_address table saved to local ")
 
