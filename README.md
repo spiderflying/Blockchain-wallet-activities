@@ -22,6 +22,7 @@ Cloud storage bucket = 'gs://dp-etherscan/'
 ``` 
 cd chainlink
 sh create_table_token.sh 
+sh create_table_txn.sh
 ```
 4. View wallet activities by selecting address in the dashboard
   https://datastudio.google.com/s/tyJBWhHDbWo
