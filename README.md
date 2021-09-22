@@ -19,8 +19,11 @@ table_id ='datapipeline-325719.etherscan.token_txn_by_address'
 Cloud storage bucket = 'gs://dp-etherscan/'
 ```
 4. Run the following command to create table in BigQuery
+
 ``` 
 cd chainlink
+python3 main.py 
+or
 sh create_table_token.sh 
 sh create_table_txn.sh
 ```
@@ -30,14 +33,15 @@ sh create_table_txn.sh
 ## Steps to build a data pipeline in GCP
 1. Extract data features from API (etherscan) 
 2. Save csv table to local
-3. Upload csv table to Cloud Storage
-4. Create table schema in Bigquery 
-5. Upload csv table to schema 
+3. Create table schema in Bigquery 
+4. Upload csv table to schema 
+5. Upload csv table to Cloud Storage
 6. Pull new data, upload to Cloud Storage 
-7. Update table with latest records 
-8. Schedule 6&7 to run on a regular basis (WIP)
+7. Upload new records to schema 
+8. Schedule 6&7 to run on a regular basis 
 9. Additional feature engineering with sql 
-10. Build data dashboard 
+10. Build data dashboard
+
 
 ## Insights and recommendations 
 1. We have observed that the addresses of interest are very active with Chainlink tokens, while dormant on other chains such as eth and bsc
