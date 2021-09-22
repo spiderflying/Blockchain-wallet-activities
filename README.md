@@ -42,6 +42,10 @@ sh create_table_txn.sh
 9. Additional feature engineering with sql 
 10. Build data dashboard
 
+## Cloud function and cloud scheduler 
+Deploy code in the cloud_function repo
+
+Schedule cloud scheduler to run every 15 mins 
 
 ## Insights and recommendations 
 1. We have observed that the addresses of interest are very active with Chainlink tokens, while dormant on other chains such as eth and bsc
