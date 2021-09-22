@@ -197,14 +197,7 @@ def hello_pubsub(event, context):
     data.to_csv("/tmp/get_token_txn_by_address.csv", index=False)
 
     print("get_token_txn_by_address table saved to local temp file")
-    # Write the text 'money' and save the file locally
 
-
-    # # Upload the file to GCS bucket
-    # bucket_name = 'dp-etherscan'
-    # local_file_location = '/tmp/' + file_name
-    # upload_blob(bucket_name, local_file_location, file_name)
-    #
     
     #Upload data to BigQuery
 
@@ -217,6 +210,7 @@ def hello_pubsub(event, context):
     upload_to_bigquery(PROJECT_ID, dataset_id, table_name, table_id, filename)
 
     print("new data uploaded to bigquery")
+    
     # Upload the file to GCS bucket
     # Create a filename
     storage_file_name = create_file_name()
