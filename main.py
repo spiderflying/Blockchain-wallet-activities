@@ -68,15 +68,6 @@ def create_features(data):
     data['netflow']=data['inflow']-data['outflow']
     return data
 
-def create_data():
-    data = pd.DataFrame(
-        columns=['address', 'blockNumber', 'timestamp', 'hash', 'blockHash', 'txn_from', 'txn_to', 'tokenName',
-                 'tokenSymbol', 'token_value', "gas_price", 'gas_fee_eth', 'send', 'receive', 'confirmations',
-                 'confirmed'])
-    for address in address_list:
-        data = get_token_txn_by_address(data, address, apikey)
-    print("API call finished")
-
 
 def upload_blob(bucket_name, source_file_name, destination_blob_name):
     """Uploads a file to the bucket."""
