@@ -79,24 +79,34 @@ def create_data():
     print("API call finished")
 
 
-# def upload_blob(bucket_name, source_file_name, destination_blob_name):
-#     """Uploads a file to the bucket."""
-#
-#     # The name of your GCS bucket
-#     # bucket_name = "your-bucket-name"
-#
-#     # The path and the file to upload
-#     # source_file_name = "local/path/to/file"
-#
-#     # The name of the file in GCS bucket once uploaded
-#     # destination_blob_name = "storage-object-name"
-#
-#     storage_client = storage.Client()
-#     bucket = storage_client.bucket(bucket_name)
-#     blob = bucket.blob(destination_blob_name)
-#
-#     blob.upload_from_filename(source_file_name)
+def upload_blob(bucket_name, source_file_name, destination_blob_name):
+    """Uploads a file to the bucket."""
 
+    # The name of your GCS bucket
+    # bucket_name = "your-bucket-name"
+
+    # The path and the file to upload
+    # source_file_name = "local/path/to/file"
+
+    # The name of the file in GCS bucket once uploaded
+    # destination_blob_name = "storage-object-name"
+
+    storage_client = storage.Client()
+    bucket = storage_client.bucket(bucket_name)
+    blob = bucket.blob(destination_blob_name)
+
+    blob.upload_from_filename(source_file_name)
+
+
+def create_file_name():
+    '''Generate a .txt filename using the current timestamp'''
+
+    # Convert the current datetime to string
+    date = datetime.now().strftime("%Y_%m_%d-%H_%M_%S_%P")
+
+    file_name = 'token_txn_by_address_' + date + '.csv'
+
+    return file_name
 
 def upload_to_bigquery(PROJECT_ID, dataset_id, table_name, table_id, filename):
     client = bigquery.Client(project=PROJECT_ID, location="US")
@@ -207,3 +217,10 @@ def hello_pubsub(event, context):
     upload_to_bigquery(PROJECT_ID, dataset_id, table_name, table_id, filename)
 
     print("new data uploaded to bigquery")
+    # Upload the file to GCS bucket
+    # Create a filename
+    storage_file_name = create_file_name()
+    bucket_name = 'dp-etherscan'
+    local_file_location = filename
+    upload_blob(bucket_name, local_file_location, storage_file_name)
+    print("new data uploaded to cloud storage")
