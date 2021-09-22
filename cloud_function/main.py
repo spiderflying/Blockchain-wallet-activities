@@ -1,5 +1,3 @@
-import base64
-
 from google.cloud import storage
 from google.cloud import bigquery
 from datetime import datetime
