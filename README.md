@@ -45,11 +45,12 @@ sh create_table_txn.sh
 ## Cloud function and cloud scheduler 
 Deploy code in the cloud_function repo
 
-Schedule cloud scheduler to run every 15 mins 
+Schedule cloud scheduler to run every 1 hr
 
 ## Insights and recommendations 
 1. We have observed that the addresses of interest are very active with Chainlink tokens, while dormant on other chains such as eth and bsc
 2. Many addresses share the same input fund address. 
 3. Output address are much more scattered, but still some share similar pattern
-4. These accounts are active since 2021 (may due to etherscan limit), have regular transaction patterns 
-5. As follow up we can do a link/graph analysis on the relationship between the accounts, and predict future transaction behaviors
+4. The accounts of interest do not transfer money from/to each other
+5. These accounts are active since 2021 (may due to etherscan limit), have regular transaction patterns 
+6. As follow up we can do a link/graph analysis on the relationship between the accounts, and predict future transaction behaviors
