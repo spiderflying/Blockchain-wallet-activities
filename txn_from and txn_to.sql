@@ -3,6 +3,27 @@ SELECT count(distinct txn_from) as from_address, count(distinct txn_to) as to_ad
  FROM `datapipeline-325719.etherscan.token_txn_by_address` 
  group by address
 
+ --where are the funds going
+ select txn_to, count(*) as txn_to_count, count( distinct address) as txn_from_address
+ from `datapipeline-325719.etherscan.token_txn_by_address` 
+ where address !=txn_to and address=txn_from
+ group by txn_to
+ order by  count(*) desc
+ 
+ 
+--where are the funds from 
+  select txn_from, count(*) as txn_from_count, count( distinct address) as txn_to_address
+ from `datapipeline-325719.etherscan.token_txn_by_address` 
+ where address !=txn_from and address=txn_to
+ group by txn_from
+ order by  count(*) desc
+
+ select address, txn_to, count(*) as txn_to_count
+ from `datapipeline-325719.etherscan.token_txn_by_address` 
+ where address !=txn_to 
+group by address, txn_to 
+order by address, count(*) desc
+
 
 --find most frequent txn_from address, and the transaction count & sum inflow 
 --0x6781a24ccc819941b7a4c9cc7b0dc32666e587e4 15 times 
